@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://karmaaproductions.com/</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://karmaaproductions.com/assets/indian_hero.png</image:loc>
+      <image:caption>Karmaa Wedding Productions — Personalize Personal Moments</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://karmaaproductions.com/assets/images/film35mm_still_1.jpg</image:loc>
+      <image:caption>35mm Analog Wedding Cinema Still</image:caption>
+    </image:image>
+  </url>
+</urlset>
