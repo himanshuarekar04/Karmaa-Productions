@@ -180,6 +180,40 @@ body {
   display: inline;
 }
 
+.header-phone-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--black-primary);
+  text-decoration: none;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 8px 16px;
+  border-radius: 50px;
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.header-phone-link:hover {
+  background: rgba(197, 155, 39, 0.12);
+  border-color: var(--gold-primary);
+  color: var(--gold-dark);
+}
+
+@media (max-width: 576px) {
+  .header-phone-link {
+    padding: 5px 8px;
+    font-size: 0.65rem;
+  }
+  .header-phone-text {
+    display: none;
+  }
+}
+
 /* Universal — strip underline from ALL anchor-based buttons */
 a.btn-hero-black-solid,
 a.btn-hero-white-outline,
