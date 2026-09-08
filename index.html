@@ -897,24 +897,30 @@
           <p class="section-desc">Fill this in — our director calls you back personally within 2 hours.</p>
         </div>
 
-        <form id="wizard-form" class="simple-inquiry-form">
+        <form id="wizard-form" class="simple-inquiry-form" action="https://formsubmit.co/cinema@karmaaproductions.com" method="POST">
+
+          <!-- FormSubmit Configuration Fields -->
+          <input type="hidden" name="_subject" value="New Wedding Inquiry — Karmaa Wedding Productions">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="Services_Interested" id="hidden-selected-services" value="Not specified">
 
           <!-- Row 1: Name + WhatsApp -->
           <div class="simple-form-row">
             <div class="input-field">
               <label>Your Name</label>
-              <input type="text" id="input-couple-names" placeholder="e.g. Rohan & Ananya" required>
+              <input type="text" id="input-couple-names" name="Couple_Name" placeholder="e.g. Rohan & Ananya" required>
             </div>
             <div class="input-field">
               <label>WhatsApp Number</label>
-              <input type="tel" id="input-phone" placeholder="+91 98765 43210" required>
+              <input type="tel" id="input-phone" name="WhatsApp_Number" placeholder="+91 98765 43210" required>
             </div>
           </div>
 
           <!-- Row 2: Location -->
           <div class="input-field">
             <label>Wedding City / Venue</label>
-            <input type="text" id="input-location" placeholder="e.g. Indore, Ujjain, Jaipur, Goa, NRI">
+            <input type="text" id="input-location" name="Wedding_City_Venue" placeholder="e.g. Indore, Ujjain, Jaipur, Goa, NRI">
           </div>
 
           <!-- Service choices -->
@@ -930,7 +936,7 @@
           <!-- Anything specific / Other requirements -->
           <div class="input-field">
             <label>Anything specific you'd like to ask or custom requirements? <span class="label-optional">(optional)</span></label>
-            <textarea id="input-query" rows="3" placeholder="Tell us about any special requests, venue details, song preferences, or questions..."></textarea>
+            <textarea id="input-query" name="Custom_Requirements" rows="3" placeholder="Tell us about any special requests, venue details, song preferences, or questions..."></textarea>
           </div>
 
           <!-- Submit -->

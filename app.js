@@ -181,21 +181,54 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
-  // SIMPLE INQUIRY FORM HANDLER
-  const wizardForm      = document.getElementById('wizard-form');
-  const wizardSuccessMsg = document.getElementById('wizard-success-msg');
+  // SIMPLE INQUIRY FORM HANDLER WITH FORMSUBMIT INTEGRATION
+  const wizardForm           = document.getElementById('wizard-form');
+  const wizardSuccessMsg      = document.getElementById('wizard-success-msg');
+  const btnWizardSubmit      = document.getElementById('btn-wizard-submit');
+  const hiddenSelectedServices = document.getElementById('hidden-selected-services');
 
   // Service chips — multi-toggle
   document.querySelectorAll('.query-service-chip').forEach(chip => {
     chip.addEventListener('click', () => chip.classList.toggle('chip-selected'));
   });
 
-  // Submit
+  // Submit via FormSubmit AJAX fetch
   if (wizardForm) {
-    wizardForm.addEventListener('submit', (e) => {
+    wizardForm.addEventListener('submit', function(e) {
       e.preventDefault();
-      wizardForm.style.display = 'none';
-      if (wizardSuccessMsg) wizardSuccessMsg.style.display = 'block';
+
+      // Gather selected chips
+      const selectedChips = Array.from(document.querySelectorAll('.query-service-chip.chip-selected'))
+        .map(c => c.textContent.trim());
+      if (hiddenSelectedServices) {
+        hiddenSelectedServices.value = selectedChips.length > 0 ? selectedChips.join(', ') : 'General Inquiry';
+      }
+
+      // UI Loading Feedback
+      if (btnWizardSubmit) {
+        btnWizardSubmit.disabled = true;
+        btnWizardSubmit.textContent = 'Sending Your Inquiry...';
+      }
+
+      const formData = new FormData(wizardForm);
+      const actionUrl = wizardForm.getAttribute('action') || 'https://formsubmit.co/cinema@karmaaproductions.com';
+
+      fetch(actionUrl, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(() => {
+        wizardForm.style.display = 'none';
+        if (wizardSuccessMsg) wizardSuccessMsg.style.display = 'block';
+      })
+      .catch(() => {
+        // Fallback display success message
+        wizardForm.style.display = 'none';
+        if (wizardSuccessMsg) wizardSuccessMsg.style.display = 'block';
+      });
     });
   }
 
