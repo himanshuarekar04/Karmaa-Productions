@@ -641,12 +641,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  if (siteBgm) {
-    siteBgm.addEventListener('play', () => updateSoundUI(true));
-    siteBgm.addEventListener('pause', () => updateSoundUI(false));
+  if (headerSoundBtn) {
+    headerSoundBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleSiteBgm();
+    });
   }
-
-  document.addEventListener('click', toggleSiteBgm);
-  document.addEventListener('touchend', toggleSiteBgm);
 });
 
